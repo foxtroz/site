@@ -43,3 +43,7 @@ input:focus {
 .outline {
     display:inline;
 }
+
+.product-count {
+  width: 6em;
+}

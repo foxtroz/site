@@ -1,4 +1,4 @@
-//Выбранные только
+/Выбранные только
 document.querySelector('#select').addEventListener('click', (event) => {
 	let data = document.querySelector('#select').value;
 	//console.log(data);
@@ -41,10 +41,12 @@ $(document).ready(function () {
 
 let tInputs = document.querySelectorAll(".product-count");
 for (let tInput of tInputs) {
-	//tInput.setAttribute('value', '0');
-	tInput.setAttribute('maxlength', '3');
-	tInput.setAttribute('size', '15');
-	tInput.setAttribute('placeholder', 'Количество грамм');
+	tInput.setAttribute('value', '0');
+	tInput.setAttribute('max', '1000');
+	tInput.setAttribute('min', '0');
+	tInput.setAttribute('placeholder', 'Грамм');
+	tInput.setAttribute('length', '4');
+	tInput.setAttribute('step', '10');
 	//tInput.closest("td").hidden = true;
 }
 //Отметка/Флажки
