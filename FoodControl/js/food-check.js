@@ -1,14 +1,33 @@
-//Фильтр/Флажки
-/*$("#comtoggle:not(:checked)").click(function () {
-	//$(".table-checkbox:checked").closest("tr").toggle();
-	$(".table-checkbox:not(:checked)").closest("tr").toggle();
-});*/
-const filterBox = document.querySelectorAll(".table-checkbox");
-//console.log(filterBox);
-/*document.querySelector("#comtoggle").addEventListener("click", event => {
-	if (event.target.tagName !== 'input') return false;
-
-});*/
+//Выбранные только
+document.querySelector('#select').addEventListener('click', (event) => {
+	let data = document.querySelector('#select').value;
+	//console.log(data);
+	if (document.querySelector('#select').checked) {
+		//document.querySelector('.outline').innerHTML = "Выбранные продукты";
+		document.querySelector('#select ~ label').innerHTML = "Выбранные продукты";
+		let checks = document.querySelectorAll(".table-checkbox");
+		for (let check of checks) {
+			if (!check.checked) {
+				check.closest('tr').hidden = true;
+			}
+		}
+		let subtitles = document.querySelectorAll("th[colspan]");
+		for (let subtitle of subtitles) {
+			subtitle.hidden = true;
+		}
+	} else {
+		//document.querySelector('.outline').innerHTML = "Все продукты";
+		document.querySelector('#select ~ label').innerHTML = "Все продукты";
+		let checks = document.querySelectorAll(".table-checkbox");
+		for (let check of checks) {
+			console.log(check);
+			check.closest('tr').hidden = false;
+		}
+		for (let subtitle of document.querySelectorAll('th[colspan]')) {
+			subtitle.hidden = false;
+		}
+	}
+})
 
 //Фильтр/Поиск
 $(document).ready(function () {
