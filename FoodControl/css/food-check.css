@@ -23,9 +23,11 @@ th, tfoot {
 
 tbody tr:hover {
   /*content: "attr(type)";/* Выводим текст */
-  position: relative;/* Абсолютное позиционирование */
+  position: relative;
+  /* Абсолютное позиционирование */
   /*left: 0; right: 0; bottom: 5px; /* Положение подсказки */
-  z-index: 1;/* Отображаем подсказку поверх других элементов */
+  z-index: 1;
+  /* Отображаем подсказку поверх других элементов */
   /*background: rgba(255, 255, 230, 0.9);/* Полупрозрачный цвет фона */
   /*font-family: Arial, sans-serif; /* Гарнитура шрифта */
   /*font-size: 11px; /* Размер текста подсказки */
@@ -41,9 +43,14 @@ input:focus {
 }
 
 .outline {
-    display:inline;
+  display: inline;
 }
 
 .product-count {
   width: 6em;
+}
+
+.big_table {
+  height: 600;
+  overflow: auto;
 }

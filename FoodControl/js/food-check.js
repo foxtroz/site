@@ -48,17 +48,18 @@ for (let tInput of tInputs) {
 	tInput.setAttribute('step', '10');
 	//tInput.closest("td").hidden = true;
 }
-//Отметка/Флажки
-/*$(document).ready(function () {
-	$("input[type='checkbox'].table-checkbox").bind("change", function () {
-		var td = $("td", $(this).parent().parent());
-		if ($(this).is(':checked')) {
-			//$(".product-count", td).val("Selected");
-			$(".product-count").closest("td").hidden = false;
-		}
-		else {
-			//$(".product-count", td).val("Unselected");
-			//$(".product-count").hide();
-		}
-	});
-})*/
+/*
+function getTableData(table) {
+	const
+	  [ head, ...rows ] = table.querySelectorAll('tr'),
+	  keys = Array.from(head.cells, n => n.innerText);
+  
+	return rows.map(tr => keys.reduce((obj, key, i) => {
+	  obj[key] = tr.cells[i].innerText;
+	  return obj;
+	}, {}));
+  }
+  
+  
+  const tableData = getTableData(document.querySelector('table'));
+  */
