@@ -2,6 +2,16 @@ table {
   border-collapse: collapse;
 }
 
+thead {
+  position: sticky;
+  top: 0;
+  }
+
+tfoot {
+  position: sticky;
+  bottom: 0;
+}
+
 table td, table th {
   border: 1px solid #ddd;
   padding: 8px;
@@ -11,7 +21,7 @@ table tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-table th {
+table th, tfoot td {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: center;
@@ -51,6 +61,8 @@ input:focus {
 }
 
 .big_table {
-  height: 600;
+  display: inline-block;
+  border: 1px solid purple;
+  height: 40em;
   overflow: auto;
 }
