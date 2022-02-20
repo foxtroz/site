@@ -48,3 +48,17 @@ for (let tInput of tInputs) {
 	tInput.setAttribute('step', '10');
 	//tInput.closest("td").hidden = true;
 }
+//Отметка/Флажки
+/*$(document).ready(function () {
+	$("input[type='checkbox'].table-checkbox").bind("change", function () {
+		var td = $("td", $(this).parent().parent());
+		if ($(this).is(':checked')) {
+			//$(".product-count", td).val("Selected");
+			$(".product-count").closest("td").hidden = false;
+		}
+		else {
+			//$(".product-count", td).val("Unselected");
+			//$(".product-count").hide();
+		}
+	});
+})*/
