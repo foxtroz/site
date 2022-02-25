@@ -78,9 +78,18 @@ for (let tInput of tInputs) {
 //const elems = document.querySelectorAll('.table-checkbox:checked'); //выбираем все отмеченные checkbox
 //const values = Array.prototype.map.call(elems, ({ value }) => value);
 //console.log(values);
-const elems = document.querySelectorAll('#table-product tr');
-const check = elems.querySelectorAll('.table-checkbox:checked');
-//const values = Array.from(check);
-//	.map(tr => Array.from(tr.querySelectorAll('td'))
-//		.map(td => td.innerText))
-console.log(check);
+
+//let tab = document.querySelector(".table-product"); // This have to be the ID of your table, not the tag
+let trs = document.querySelectorAll("tr");
+//console.log(trs);
+for (let tr of trs) {
+	//console.log(tr);
+	let tds = tr.querySelectorAll("td");
+	for (let td of tds) {
+		//td.onclick = function () { alert(this.innerHTML); }
+		td.addEventListener("click", function (td) { alert(this.innerHTML) });
+		//td.addEventListener('click', function (td) { console.log(this); })
+		//console.log(td);
+	}
+}
+//console.log(rows);
