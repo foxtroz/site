@@ -60,11 +60,11 @@ input:focus {
   display: inline;
 }
 
-.product-count {
+input.product-count {
   width: 6em;
 }
 
-.big_table {
+div.big_table {
   display: inline-block;
   border: 1px solid purple;
   height: 40em;
