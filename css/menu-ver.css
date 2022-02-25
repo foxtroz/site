@@ -1,0 +1,30 @@
+body {
+    font-family: sans-serif;
+}
+
+ul.menu {
+    display: flex;
+}
+
+a {
+    display: block;
+    color: black;
+    text-decoration: none;
+    background-color: #ccc;
+    padding: 1em;
+}
+
+a:hover {
+    background-color: pink;
+}
+
+a:focus{
+    outline: none;
+    background-color: yellow;
+}
+
+ul.submenu {
+    /*display: none;*/
+    flex-direction: column;
+    position: absolute;
+}

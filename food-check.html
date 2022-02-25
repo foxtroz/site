@@ -4,11 +4,8 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="css/font-awesome.css" type="text/css">
-	<link rel="stylesheet" href="css/style.css" type="text/css">
-	<link rel="stylesheet" href="css/media.css" type="text/css">
-	<link href="https://fonts.googleapis.com/css?family=Cuprum" rel="stylesheet">
-
+	<link rel="stylesheet" href="css/menu-hor.css" type="text/css">
+	
 	<link href="css/food-check.css" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
@@ -18,17 +15,23 @@
 	<h3>Содержание питательных веществ в 100 г. продукта</h3>
 
 	<!--div.side>ul.menu>li*5>a[#]{Пункт $}  Tab-->
-
-		<nav class="dws-menu">
-			<input type="checkbox" name="toggle" id="menu" class="toggleMenu">
-			<label for="menu" class="toggleMenu"><i class="fa fa-bars"></i>Меню</label>
-			<ul>
-				<li> <a href="food-check.html"><i class="fa"></i>Прод.</a> </li>
-				<li> <a href="amino-mikoyan.html"><i class="fa"></i>Амино</a></li>
-				<li><a href="https://gorzdrav.spb.ru/drug-search"><i class="fa"></i>Лекар.</a></li>
-			</ul>
-		</nav>
-
+	<nav>
+		<ul class="menu">
+			<li><a href="#">Меню</a>
+				<ul class="submenu">
+					<li> <a href="food-check.html">Продукты</a> </li>
+					<li> <a href="amino-mikoyan.html">Аминок.</a></li>
+					<!--<ul>
+                        <li><a href="#">level 3</a></li>
+                        <li><a href="#">level 3</a></li>
+                        <li><a href="#">level 3</a></li>
+                    </ul>-->
+				</ul>
+			</li>
+			<li> <a href="food-check.html">Продукты</a> </li>
+			<li> <a href="amino-mikoyan.html">Аминок.</a></li>
+		</ul>
+	</nav>
 	<div class="big_table">
 		<table id="tableProduct">
 			<!--<caption>Содержание питательных веществ в 100 г. продукта</caption>-->
