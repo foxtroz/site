@@ -2,7 +2,7 @@ body {
     font-family: sans-serif;
 }
 
-ul {
+ul.menu {
     display: flex;
     padding-left: 0;
     list-style: none;

@@ -26,16 +26,6 @@ document.querySelector('#select').addEventListener('click', (event) => {
 })
 
 //Фильтр/Поиск
-/*$(document).ready(function () {
-	$("#search-product").on("keyup", function () {
-		var value = $(this).val().toLowerCase();
-		$("#table-product tr").filter(function () {
-			$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-		});
-	});
-});*/
-
-//Фильтр/Поиск
 document.querySelector('#search-product').addEventListener('keyup', () => {
 	// Declare variables
 	//var input, filter, table, tr, td, i, txtValue;
@@ -63,7 +53,7 @@ document.querySelector('#search-product').addEventListener('keyup', () => {
 	}
 })
 
-
+/*Все в CSS!*/
 let tInputs = document.querySelectorAll(".product-count");
 for (let tInput of tInputs) {
 	tInput.setAttribute('value', '0');
@@ -75,26 +65,22 @@ for (let tInput of tInputs) {
 	//tInput.closest("td").hidden = true;
 }
 
-//const elems = document.querySelectorAll('.table-checkbox:checked'); //выбираем все отмеченные checkbox
-//const values = Array.prototype.map.call(elems, ({ value }) => value);
-//console.log(values);
 
-//let tab = document.querySelector(".table-product"); // This have to be the ID of your table, not the tag
-let trs = document.querySelectorAll("tr");
-//console.log(trs);
-for (let tr of trs) {
-	let tds = tr.querySelectorAll("td");
-	for (let j=0; j<tds.length; j++) {
-		//td.onclick = function () { alert(this.innerHTML); }
-		//tds[j].addEventListener("click", function () { alert(this.innerHTML); });
-		tds[j].addEventListener('click', function () { console.log(this.innerHTML); })
-		tds[j].addEventListener('click', function () { console.log(this.outerHTML); })
-		//tds[j].addEventListener('click', function () { console.log(this.child.value); })
-
-	}
+/*WebDev.Практика JavaScript: DOM, parent, spread, children, map, forEach. Реальный пример*/
+document.querySelector('tbody').onclick = function (event) {
+	//console.log(event.target);
+	if (event.target.tagName !== 'TD') return false;
+	//console.log(event.target);
+	let data = [...event.target.parentNode.children];
+	//console.log(data);
+	let text = getDataFromTd(data);
+	//console.log(text);
+	outText(text);
 }
-/*
-document.querySelector(".b-1").addEventListener('click', () => {
-	let data = document.querySelector(".i-1").value;
-	document.querySelector('.out-1').innerHTML = data;
-});*/
+function getDataFromTd(tdArr) {
+	return tdArr.map(item => item.textContent);
+}
+const UL = document.querySelectorAll('ul>li>span');
+function outText(text) {
+	text.forEach((item, index) => UL[index].textContent = item);
+}

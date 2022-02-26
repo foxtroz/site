@@ -70,3 +70,11 @@ div.big_table {
   height: 40em;
   overflow: auto;
 }
+
+input{
+  width: 80px;
+}
+
+tbody tr:hover{
+  background-color: rgb(243, 167, 167);
+}

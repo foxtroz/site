@@ -12,7 +12,7 @@
 
 <body>
 	<noscript>Включите поддержку JavaScript!</noscript>
-	<h3>Содержание питательных веществ в 100 г. продукта</h3>
+	<!--<h3>Содержание питательных веществ в 100 г. продукта</h3>-->
 
 	<!--div.side>ul.menu>li*5>a[#]{Пункт $}  Tab-->
 	<div class="outline"></div>
@@ -35,7 +35,7 @@
 	</nav>
 	<div class="big_table">
 		<table id="tableProduct">
-			<!--<caption>Содержание питательных веществ в 100 г. продукта</caption>-->
+			<caption>Содержание питательных веществ в 100 г. продукта</caption>
 			<thead>
 				<tr>
 					<th>Продукты <input id="search-product" placeholder="Поиск" type="search" /></th>
@@ -5703,7 +5703,7 @@
 					<td></td>
 				</tr>
 				<tr>
-					<td>% от Ккал:</td>
+					<td>Ваш % от Ккал (БЖУ):</td>
 					<td>0</td>
 					<td>0</td>
 					<td>0</td>
@@ -5715,28 +5715,28 @@
 					<td></td>
 				</tr>
 				<tr>
-					<td>Норма:</td>
-					<td>0</td>
-					<td>0</td>
-					<td>0</td>
+					<td>Нормы % от Ккал:</td>
+					<td>3,4%</td>
+					<td>3,0%</td>
+					<td>12,5%</td>
 					<td>
 						< 2г/д</td>
 					<td>
 						< 2г/д</td>
 					<td>
 						< 1г/д</td>
-					<td>0</td>
+					<td>100%</td>
 					<td></td>
 					<td></td>
 				</tr>
 				<tr>
-					<td>Ваш вес:<input type="number" class="dry-weight"/></td>
+					<td>Ваш вес:<input type="number" class="dry-weight" /></td>
 					<td>0</td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td>0</td>
+					<td>0</td>
+					<td>0</td>
+					<td>0</td>
+					<td>0</td>
 					<td>0</td>
 					<td></td>
 					<td></td>
@@ -5746,7 +5746,20 @@
 			</tfoot>
 		</table>
 	</div>
-
+	<div class="container">
+		<UL>
+			<li>Название: <span></span></li>
+			<li>Белки: <span></span></li>
+			<li>Жиры: <span></span></li>
+			<li>Углеводы: <span></span></li>
+			<li>Натрий: <span></span></li>
+			<li>Калий: <span></span></li>
+			<li>Фосфор: <span></span></li>
+			<li>кКал: <span></span></li>
+			<li>Флаг: <span></span></li>
+			<li>Грамм: <span></span></li>
+		</UL>
+	</div>
 
 	<script src="js/food-check.js"></script>
 </body>
