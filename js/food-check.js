@@ -83,13 +83,18 @@ for (let tInput of tInputs) {
 let trs = document.querySelectorAll("tr");
 //console.log(trs);
 for (let tr of trs) {
-	//console.log(tr);
 	let tds = tr.querySelectorAll("td");
-	for (let td of tds) {
+	for (let j=0; j<tds.length; j++) {
 		//td.onclick = function () { alert(this.innerHTML); }
-		td.addEventListener("click", function (td) { alert(this.innerHTML) });
-		//td.addEventListener('click', function (td) { console.log(this); })
-		//console.log(td);
+		//tds[j].addEventListener("click", function () { alert(this.innerHTML); });
+		tds[j].addEventListener('click', function () { console.log(this.innerHTML); })
+		tds[j].addEventListener('click', function () { console.log(this.outerHTML); })
+		//tds[j].addEventListener('click', function () { console.log(this.child.value); })
+
 	}
 }
-//console.log(rows);
+/*
+document.querySelector(".b-1").addEventListener('click', () => {
+	let data = document.querySelector(".i-1").value;
+	document.querySelector('.out-1').innerHTML = data;
+});*/
