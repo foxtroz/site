@@ -70,10 +70,10 @@ function getDataFromTd(tdArr) {
 	return tdArr.map(item => item.textContent);
 }
 const UL = document.querySelectorAll('ul>li>span');
-const TD = document.querySelectorAll('tfoot>tr>td');
+//const TD = document.querySelectorAll('tfoot>tr>td');
 function outText(text) {
 	text.forEach((item, index) => UL[index].textContent = item);
-	text.forEach((item, index) => TD[index].textContent = item);
+	//text.forEach((item, index) => TD[index].textContent = item);
 	//console.log(text);
 	//TD[9].textContent = prompt('How old are you?', 40);
 }

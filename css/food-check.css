@@ -35,20 +35,8 @@ th, tfoot {
 }
 
 tbody tr:hover {
-  /*content: "attr(type)";/* Выводим текст */
   position: relative;
-  /* Абсолютное позиционирование */
-  /*left: 0; right: 0; bottom: 5px; /* Положение подсказки */
   z-index: 1;
-  /* Отображаем подсказку поверх других элементов */
-  /*background: rgba(255, 255, 230, 0.9);/* Полупрозрачный цвет фона */
-  /*font-family: Arial, sans-serif; /* Гарнитура шрифта */
-  /*font-size: 11px; /* Размер текста подсказки */
-  /*padding: 5px 10px;
-  /* Поля */
-  /*border: 1px solid #333;
-  /* Параметры рамки */
-  /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);/**/
 }
 
 input:focus {
