@@ -1,5 +1,5 @@
 body {
-  background-color: silver;
+  background-color: #eee;
 }
 
 table, thead, tfoot, th, td {
@@ -58,6 +58,7 @@ div.big_table {
   border: 1px solid purple;
   height: 40em;
   overflow: auto;
+  /*box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
 }
 
 input {
@@ -70,4 +71,8 @@ tbody tr:hover {
 
 .weight {
   width: auto;
+}
+
+div.big_table, thead, tfoot {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.5); /* Параметры тени */
 }
