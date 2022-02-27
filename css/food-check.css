@@ -1,4 +1,6 @@
-body {}
+body {
+  background-color: silver;
+}
 
 table, thead, tfoot, th, td {
   border: 1px solid black !important;
