@@ -53,19 +53,6 @@ document.querySelector('#search-product').addEventListener('keyup', () => {
 	}
 })
 
-/*Все в CSS!*/
-let tInputs = document.querySelectorAll(".product-count");
-for (let tInput of tInputs) {
-	tInput.setAttribute('value', '0');
-	tInput.setAttribute('max', '1000');
-	tInput.setAttribute('min', '0');
-	tInput.setAttribute('placeholder', 'Грамм');
-	tInput.setAttribute('length', '4');
-	tInput.setAttribute('step', '10');
-	//tInput.closest("td").hidden = true;
-}
-
-
 /*WebDev.Практика JavaScript: DOM, parent, spread, children, map, forEach. Реальный пример*/
 document.querySelector('tbody').onclick = function (event) {
 	//console.log(event.target);
@@ -83,11 +70,14 @@ function getDataFromTd(tdArr) {
 	return tdArr.map(item => item.textContent);
 }
 const UL = document.querySelectorAll('ul>li>span');
-const TD = document.querySelectorAll('tfoot>tr>td');
+//const TD = document.querySelectorAll('tfoot>tr>td');
 function outText(text) {
 	text.forEach((item, index) => UL[index].textContent = item);
-	text.forEach((item, index) => TD[index].textContent = item);
+	//text.forEach((item, index) => TD[index].textContent = item);
 	console.log(text);
 	//TD[9].textContent = prompt('How old are you?', 40);
 }
 
+document.querySelector('.weight').onclick = function (event) {
+	this.closest('tr').children[9].textContent = prompt("Введите Ваш сухой вес", 0);
+}
