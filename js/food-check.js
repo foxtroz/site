@@ -70,11 +70,11 @@ function getDataFromTd(tdArr) {
 	return tdArr.map(item => item.textContent);
 }
 const UL = document.querySelectorAll('ul>li>span');
-//const TD = document.querySelectorAll('tfoot>tr>td');
+const TD = document.querySelectorAll('tfoot>tr>td');
 function outText(text) {
 	text.forEach((item, index) => UL[index].textContent = item);
-	//text.forEach((item, index) => TD[index].textContent = item);
-	console.log(text);
+	text.forEach((item, index) => TD[index].textContent = item);
+	//console.log(text);
 	//TD[9].textContent = prompt('How old are you?', 40);
 }
 
@@ -83,3 +83,30 @@ document.querySelector('.weight').onclick = function (event) {
 	this.closest('tr').children[1].textContent = 1.2 * weight;
 	this.closest('tr').children[7].textContent = 35 * weight;
 }
+
+document.querySelector('.calc').onclick = function (event) {
+	let msg = "Вы хотите произвести расчет по выбранным продуктам?"
+	if (!confirm(msg)) return false;
+	let trs = document.querySelectorAll('tbody > tr');
+	/*	for (let tr of trs) {
+			let tds = tr.children;
+			if (tds.length !== 10) return false;
+			//if (tds[9].innerHTML == '0')
+			//console.log(tds);
+	
+		}*/
+
+	const td2 = document.querySelectorAll('tfoot>tr>td');
+	let data = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+	let text = data;//.map(item => item.textContent);
+	//console.log(data);
+	//text.forEach((item, index) => td2[index].textContent = item);
+	for (let i = 1; i < text.length - 2; i++) {
+		td2[i].textContent = text[i];
+	}
+	//console.log(calctr);
+}
+
+
+
+
