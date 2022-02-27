@@ -72,6 +72,8 @@ document.querySelector('tbody').onclick = function (event) {
 	if (event.target.tagName !== 'TD') return false;
 	//console.log(event.target);
 	let data = [...event.target.parentNode.children];
+	let msg = "\"" + data[0].textContent + "\". Введите количество граммов или откажитесь";
+	data[9].textContent = prompt(msg, 0);
 	//console.log(data);
 	let text = getDataFromTd(data);
 	//console.log(text);
@@ -85,4 +87,7 @@ const TD = document.querySelectorAll('tfoot>tr>td');
 function outText(text) {
 	text.forEach((item, index) => UL[index].textContent = item);
 	text.forEach((item, index) => TD[index].textContent = item);
+	console.log(text);
+	//TD[9].textContent = prompt('How old are you?', 40);
 }
+
