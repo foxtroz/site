@@ -1,15 +1,14 @@
-body{
+body {}
 
-}
-
-table {
-  border-collapse: collapse;
+table, thead, tfoot, th, td {
+  border: 1px solid black !important;
+  border-collapse: collapse !important;
 }
 
 thead {
   position: sticky;
   top: 0;
-  }
+}
 
 tfoot {
   position: sticky;
@@ -17,7 +16,7 @@ tfoot {
 }
 
 table td, table th {
-  border: 1px solid #ddd;
+  /*border: 1px solid #ddd;*/
   padding: 8px;
 }
 
@@ -71,14 +70,14 @@ div.big_table {
   overflow: auto;
 }
 
-input{
+input {
   width: 100px;
 }
 
-tbody tr:hover{
+tbody tr:hover {
   background-color: rgb(243, 167, 167);
 }
 
-.weight{
+.weight {
   width: auto;
 }
