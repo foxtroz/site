@@ -111,7 +111,7 @@ document.querySelector('.calc').onclick = function (event) {
 		coeff = (cnt == null || cnt == "" || cnt == "undefined") ? 0 : cnt;
 		console.log(cnt);
 		console.log(coeff);
-		let curr = crow.map(item => parseFloat(item) * coeff / 100)
+		let curr = crow.map(item => (parseFloat(item) * coeff / 100).toFixed(2));
 		text = sum2Arrays(text, curr);
 		//console.log(text);
 	}
@@ -126,7 +126,7 @@ document.querySelector('.calc').onclick = function (event) {
 	//console.log(calctr);
 	const bgu = document.querySelectorAll('.bgu>td');
 	for (let i = 1; i < 4; i++) {
-		bgu[i].textContent = text[i] / text[9] * 100;
+		bgu[i].textContent = (text[i] / text[9] * 100).toFixed(2);
 	}
 
 }
