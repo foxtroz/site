@@ -60,8 +60,18 @@ document.querySelector('tbody').onclick = function (event) {
 	//console.log(event.target);
 	let data = [...event.target.parentNode.children];
 	let msg = "\"" + data[0].textContent + "\". Введите количество граммов или откажитесь";
-	data[9].textContent = prompt(msg, 0);
-	//console.log(data);
+	let promptres = prompt(msg, 0);
+	if (promptres == null || promptres == "" || typeof promptres == 'undefined') return false;
+	//console.log(data[8].querySelector('input').checked);
+	if (promptres > 0) {
+		data[9].textContent = promptres;
+		data[8].querySelector('input').checked = true;
+	} else {
+		data[9].textContent = undefined;
+		data[8].querySelector('input').checked = false;
+		//console.log('return');
+		return false;
+	}
 	let text = getDataFromTd(data);
 	//console.log(text);
 	outText(text);
@@ -85,21 +95,25 @@ document.querySelector('.weight').onclick = function (event) {
 }
 
 document.querySelector('.calc').onclick = function (event) {
-	let msg = "Вы хотите произвести расчет по выбранным продуктам?"
-	if (!confirm(msg)) return false;
+	//console.log(event.target);
 	let trs = document.querySelectorAll('tbody > tr');
-	/*	for (let tr of trs) {
-			let tds = tr.children;
-			if (tds.length !== 10) return false;
-			//if (tds[9].innerHTML == '0')
-			//console.log(tds);
-	
-		}*/
+	let text = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+	for (let tr of trs) {
+		let tds = tr.children;
+		//console.log('tds array?:' + Array.isArray(tds));
+		if (tds.length !== 10) continue;
+		if (tds[8].querySelector('input').checked == false) continue;
+		console.log(tds[9].textContent);
+		let data = Array.from(tr.children);
+		let crow = data.map(item => item.textContent);
+		let curr = crow.map(item => parseFloat(item) * parseFloat(tds[9].textContent))
+		text = sum2Arrays(text, curr);
+
+		//console.log(text);
+	}
 
 	const td2 = document.querySelectorAll('tfoot>tr>td');
-	let data = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-	let text = data;//.map(item => item.textContent);
-	//console.log(data);
+	//console.log(text);
 	//text.forEach((item, index) => td2[index].textContent = item);
 	for (let i = 1; i < text.length - 2; i++) {
 		td2[i].textContent = text[i];
@@ -107,6 +121,15 @@ document.querySelector('.calc').onclick = function (event) {
 	//console.log(calctr);
 }
 
+function sum2Arrays(arr1, arr2) {
+	let sum = [];
+	for (let i = 0; i < arr1.length; i++) {
+		sum[i] = parseFloat(arr1[i]) + parseFloat(arr2[i]);
+	}
+	return sum;
+}
 
-
+let arr1 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+let arr2 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+//console.log(sum2Arrays(arr1, arr2));
 

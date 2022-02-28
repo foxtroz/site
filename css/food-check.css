@@ -74,5 +74,5 @@ tbody tr:hover {
 }
 
 div.big_table, thead, tfoot {
-  box-shadow: 0 14px 28px rgba(0,0,0,0.5); /* Параметры тени */
+  box-shadow: 0 8px 10px rgba(0,0,0,0.5); /* Параметры тени */
 }
