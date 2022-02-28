@@ -92,6 +92,7 @@ document.querySelector('.weight').onclick = function (event) {
 	let weight = prompt("Введите Ваш сухой вес", 0);
 	this.closest('tr').children[1].textContent = 1.2 * weight;
 	this.closest('tr').children[7].textContent = 35 * weight;
+	this.closest('tr').children[8].textContent = "<-Нормы для веса " +  weight + 'кг';
 }
 
 document.querySelector('.calc').onclick = function (event) {
