@@ -17,9 +17,10 @@ tfoot {
   bottom: 0;
 }
 
-table td, table th {
+table td, table th, tfoot td {
   /*border: 1px solid #ddd;*/
   padding: 8px;
+  width: auto
 }
 
 table tr:nth-child(even) {
@@ -49,9 +50,10 @@ input:focus {
   display: inline;
 }
 
+/*
 input.product-count {
-  width: 6em;
-}
+  width: auto;
+}*/
 
 div.big_table {
   display: inline-block;
@@ -62,7 +64,7 @@ div.big_table {
 }
 
 input {
-  width: 100px;
+  width: auto;
 }
 
 tbody tr:hover {
@@ -73,6 +75,11 @@ tbody tr:hover {
   width: auto;
 }
 
-div.big_table, thead, tfoot {
-  box-shadow: 0 8px 10px rgba(0,0,0,0.5); /* Параметры тени */
+div.big_table {
+  box-shadow: 0 18px 28px rgba(0, 0, 0, 0.5);
+  /* Параметры тени */
+}
+
+.table-checkbox:not(:checked) {
+  display: none;
 }

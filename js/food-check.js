@@ -108,7 +108,7 @@ document.querySelector('.calc').onclick = function (event) {
 		let crow = data.map(item => item.textContent);
 		let cnt = parseFloat(tds[9].textContent);
 		console.log(cnt);
-		coeff = (cnt == null || cnt == "" || cnt == "undefined")? 0: cnt;
+		coeff = (cnt == null || cnt == "" || cnt == "undefined") ? 0 : cnt;
 		console.log(cnt);
 		console.log(coeff);
 		let curr = crow.map(item => parseFloat(item) * coeff / 100)
@@ -138,8 +138,3 @@ function sum2Arrays(arr1, arr2) {
 	}
 	return sum;
 }
-
-let arr1 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-let arr2 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-//console.log(sum2Arrays(arr1, arr2));
-
