@@ -106,7 +106,7 @@ document.querySelector('.calc').onclick = function (event) {
 		console.log(tds[9].textContent);
 		let data = Array.from(tr.children);
 		let crow = data.map(item => item.textContent);
-		let curr = crow.map(item => parseFloat(item) * parseFloat(tds[9].textContent))
+		let curr = crow.map(item => parseFloat(item) * parseFloat(tds[9].textContent) / 100)
 		text = sum2Arrays(text, curr);
 
 		//console.log(text);
