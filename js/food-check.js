@@ -106,11 +106,16 @@ document.querySelector('.calc').onclick = function (event) {
 		console.log(tds[9].textContent);
 		let data = Array.from(tr.children);
 		let crow = data.map(item => item.textContent);
-		let curr = crow.map(item => parseFloat(item) * parseFloat(tds[9].textContent) / 100)
+		let cnt = parseFloat(tds[9].textContent);
+		console.log(cnt);
+		coeff = (cnt == null || cnt == "" || cnt == "undefined")? 0: cnt;
+		console.log(cnt);
+		console.log(coeff);
+		let curr = crow.map(item => parseFloat(item) * coeff / 100)
 		text = sum2Arrays(text, curr);
-
 		//console.log(text);
 	}
+
 
 	const td2 = document.querySelectorAll('tfoot>tr>td');
 	//console.log(text);
@@ -119,6 +124,11 @@ document.querySelector('.calc').onclick = function (event) {
 		td2[i].textContent = text[i];
 	}
 	//console.log(calctr);
+	const bgu = document.querySelectorAll('.bgu>td');
+	for (let i = 1; i < 4; i++) {
+		bgu[i].textContent = text[i] / text[9] * 100;
+	}
+
 }
 
 function sum2Arrays(arr1, arr2) {
