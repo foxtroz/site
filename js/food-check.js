@@ -98,7 +98,8 @@ document.querySelector('.weight').onclick = function (event) {
 document.querySelector('.calc').onclick = function (event) {
 	//console.log(event.target);
 	let trs = document.querySelectorAll('tbody > tr');
-	let text = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+	let text = ["" , 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, , 0];
+	//let text = [];
 	//for (let tr of trs) {
 	for (let i = 1; i < 8; i++) {
 		let tr = trs[i];
