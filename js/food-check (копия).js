@@ -1,13 +1,26 @@
 //Выбранные только
-document.querySelector('.select').addEventListener('change', (event) => {
-	let data = document.querySelector('.select').value;
-	console.log(data);
-	let checks = document.querySelectorAll(".table-checkbox");
-	for (let check of checks) {
-		if (!check.checked && data == 'sel') {
-			check.closest('tr').hidden = true;
-		} else {
+document.querySelector('#select').addEventListener('click', (event) => {
+	let data = document.querySelector('#select').value;
+	if (document.querySelector('#select').checked) {
+		document.querySelector('#select ~ label').innerHTML = "Выбранные продукты";
+		let checks = document.querySelectorAll(".table-checkbox");
+		for (let check of checks) {
+			if (!check.checked) {
+				check.closest('tr').hidden = true;
+			}
+		}
+		let subtitles = document.querySelectorAll("th[colspan]");
+		for (let subtitle of subtitles) {
+			subtitle.hidden = true;
+		}
+	} else {
+		document.querySelector('#select ~ label').innerHTML = "Все продукты";
+		let checks = document.querySelectorAll(".table-checkbox");
+		for (let check of checks) {
 			check.closest('tr').hidden = false;
+		}
+		for (let subtitle of document.querySelectorAll('th[colspan]')) {
+			subtitle.hidden = false;
 		}
 	}
 })
