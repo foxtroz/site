@@ -99,7 +99,7 @@ document.querySelector('.calc').onclick = function (event) {
 	//console.log(event.target);
 	let trs = document.querySelectorAll('tbody > tr');
 	//let text = ["" , 0, 0, 0, 0, 0, 0, 0, "", 0];
-	let text = [10];
+	let text = [7]; // Только числа
 	//По строкам
 	//for (let tr of trs) {
 	for (let i = 0; i < trs.length; i++) {
@@ -117,9 +117,9 @@ document.querySelector('.calc').onclick = function (event) {
 		//console.log(cnt); console.log(coeff);
 		//let curr = crow.map(item => parseFloat(item) * parseFloat(coeff) / 100.00);
 		//По ячейкам
-		let curr = [10];
-		for (let j = 1; j < 8; j++) {
-			let cell = crow[j].replace(',', '.');
+		let curr = [7];
+		for (let j = 0; j < 7; j++) {
+			let cell = crow[j+1].replace(',', '.');
 			//console.log(cell);
 			curr[j] = parseFloat(cell) * coeff / 100;
 		}
@@ -133,8 +133,8 @@ document.querySelector('.calc').onclick = function (event) {
 	const td2 = document.querySelectorAll('tfoot>tr>td');
 	//console.log(text);
 	//text.forEach((item, index) => td2[index].textContent = item);
-	for (let i = 1; i < 8; i++) {
-		td2[i].textContent = text[i].toFixed(2);
+	for (let i = 0; i < 7; i++) {
+		td2[i+1].textContent = text[i].toFixed(2);
 	}
 	//console.log(calctr);
 	const bgu = document.querySelectorAll('.bgu>td');
@@ -143,14 +143,14 @@ document.querySelector('.calc').onclick = function (event) {
 		let a2 = text[7];
 		let b1 = (a1 == null || a1 == "" || a1 == "undefined" || a1 == "-") ? 0 : a1;
 		let b2 = (a2 == null || a2 == "" || a2 == "undefined" || a2 == "-") ? 0 : a2;
-		bgu[i].textContent = (parseFloat(b1) * 100.00 / parseFloat(b2)).toFixed(2);
+		bgu[i+1].textContent = (parseFloat(b1) * 100.00 / parseFloat(b2)).toFixed(2);
 	}
 
 }
 
 function sum2Arrays(arr1, arr2) {
 	let sum = [];
-	for (let i = 1; i < 8; i++) {
+	for (let i = 0; i < 7; i++) {
 		let a1 = arr1[i];
 		let a2 = arr2[i];
 		let b1 = (a1 == null || a1 == "" || a1 == "undefined" || a1 == "-") ? 0 : a1;
