@@ -92,29 +92,31 @@ document.querySelector('.weight').onclick = function (event) {
 	let weight = prompt("Введите Ваш сухой вес", 0);
 	this.closest('tr').children[1].textContent = 1.2 * weight;
 	this.closest('tr').children[7].textContent = 35 * weight;
-	this.closest('tr').children[8].textContent = "<-Нормы для веса " +  weight + 'кг';
+	this.closest('tr').children[8].textContent = "<-Нормы для веса " + weight + 'кг';
 }
 
 document.querySelector('.calc').onclick = function (event) {
 	//console.log(event.target);
 	let trs = document.querySelectorAll('tbody > tr');
 	let text = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-	for (let tr of trs) {
+	//for (let tr of trs) {
+	for (let i = 1; i < 8; i++) {
+		let tr = trs[i];
 		let tds = tr.children;
 		//console.log('tds array?:' + Array.isArray(tds));
 		if (tds.length !== 10) continue;
 		if (tds[8].querySelector('input').checked == false) continue;
-		console.log(tds[9].textContent);
-		let data = Array.from(tr.children);
+		//console.log(tds[9].textContent);
+		let data = Array.from(tr.children); // Не все children!!!
 		let crow = data.map(item => item.textContent);
 		let cnt = parseFloat(tds[9].textContent);
-		console.log(cnt);
+		//console.log(cnt);
 		coeff = (cnt == null || cnt == "" || cnt == "undefined") ? 0 : cnt;
-		console.log(cnt);
-		console.log(coeff);
-		let curr = crow.map(item => (parseFloat(item) * coeff / 100).toFixed(2));
+		//console.log(cnt);
+		//console.log(coeff);
+		let curr = crow.map(item => parseFloat(item) * coeff / 100);
 		text = sum2Arrays(text, curr);
-		//console.log(text);
+		//console.log(text);  Где то ошибка в расчете массива надо i с 1 по 7
 	}
 
 
@@ -122,12 +124,16 @@ document.querySelector('.calc').onclick = function (event) {
 	//console.log(text);
 	//text.forEach((item, index) => td2[index].textContent = item);
 	for (let i = 1; i < text.length - 2; i++) {
-		td2[i].textContent = text[i];
+		td2[i].textContent = text[i].toFixed(2);
 	}
 	//console.log(calctr);
 	const bgu = document.querySelectorAll('.bgu>td');
 	for (let i = 1; i < 4; i++) {
-		bgu[i].textContent = (parseFloat(text[i]) * 100 / parseFloat(text[7])).toFixed(2);
+		let a1 = text[i];
+		let a2 = text[7];
+		let b1 = a1 == null || a1 == "" || a1 == "undefined" || a1 == "-" ? 0 : a1;
+		let b2 = a2 == null || a2 == "" || a2 == "undefined" || a2 == "-" ? 0 : a2;
+		bgu[i].textContent = (parseFloat(b1) * 100 / parseFloat(b2)).toFixed(2);
 	}
 
 }
@@ -135,7 +141,11 @@ document.querySelector('.calc').onclick = function (event) {
 function sum2Arrays(arr1, arr2) {
 	let sum = [];
 	for (let i = 0; i < arr1.length; i++) {
-		sum[i] = parseFloat(arr1[i]) + parseFloat(arr2[i]);
+		let a1 = arr1[i];
+		let a2 = arr2[i];
+		let b1 = a1 == null || a1 == "" || a1 == "undefined" || a1 == "-" ? 0 : a1;
+		let b2 = a2 == null || a2 == "" || a2 == "undefined" || a2 == "-" ? 0 : a2;
+		sum[i] = parseFloat(b1) + parseFloat(b2);
 	}
 	return sum;
 }
