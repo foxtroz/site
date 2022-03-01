@@ -127,7 +127,7 @@ document.querySelector('.calc').onclick = function (event) {
 	//console.log(calctr);
 	const bgu = document.querySelectorAll('.bgu>td');
 	for (let i = 1; i < 4; i++) {
-		bgu[i].textContent = (text[i] / text[9] * 100).toFixed(2);
+		bgu[i].textContent = (parseFloat(text[i]) * 100 / parseFloat(text[7] ));
 	}
 
 }
