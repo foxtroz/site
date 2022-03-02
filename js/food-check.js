@@ -6,11 +6,22 @@ document.querySelector('.select').addEventListener('change', (event) => {
 	for (let check of checks) {
 		if (!check.checked && data == 'sel') {
 			check.closest('tr').hidden = true;
+			hideSubTitles(true);
 		} else {
 			check.closest('tr').hidden = false;
+			hideSubTitles(false);
 		}
 	}
 })
+// 
+function hideSubTitles(flag) {
+	let trs = document.querySelectorAll('tbody tr');
+	//console.log(trs);
+	for (let tr of trs) {
+		if (tr.children.length == 1)
+			tr.hidden = flag;
+	}
+}
 
 //Фильтр/Поиск
 document.querySelector('#search-product').addEventListener('keyup', () => {
