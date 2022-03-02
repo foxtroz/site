@@ -168,11 +168,11 @@ document.querySelector(".sel-prod-type").addEventListener('change', (event) => {
 	let trs = document.querySelectorAll('tbody tr');
 	for (let tr of trs) {
 		if (tr.children.length != 1) continue;
-		if (tr.children[0].textContent = selProdType) {
+		/*if (tr.children[0].textContent = selProdType) {
 			//console.log(tr.children[0].textContent);
-			tr.closest('.big_table').scrollIntoView();
+			//tr.closest('.big_table').scrollIntoView();
 			break;
-		};
+		};*/
 	}
 });
 
