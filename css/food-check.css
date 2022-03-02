@@ -59,7 +59,8 @@ div.big_table {
   display: inline-block;
   border: 1px solid purple;
   height: 40em;
-  overflow: auto;
+  /*overflow: auto;*/
+  overflow: scroll;
   /*box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
 }
 
