@@ -1,7 +1,7 @@
 //Выбранные только
 document.querySelector('.select').addEventListener('change', (event) => {
 	let data = document.querySelector('.select').value;
-	console.log(data);
+	//console.log(data);
 	let checks = document.querySelectorAll(".table-checkbox");
 	for (let check of checks) {
 		if (!check.checked && data == 'sel') {
@@ -77,9 +77,10 @@ function outText(text) {
 
 document.querySelector('.weight').onclick = function (event) {
 	let weight = prompt("Введите Ваш сухой вес", 0);
-	this.closest('tr').children[1].textContent = 1.2 * weight;
-	this.closest('tr').children[7].textContent = 35 * weight;
-	this.closest('tr').children[8].textContent = "<-Нормы для веса " + weight + 'кг';
+	weight = parseFloat(weight);
+	this.closest('tr').children[1].textContent = (1.2 * weight).toFixed(2);
+	this.closest('tr').children[7].textContent = (35 * weight).toFixed(2);
+	this.closest('tr').children[8].textContent = "<-Нормы для Вашего веса " + weight + 'кг';
 }
 
 document.querySelector('.calc').onclick = function (event) {
@@ -147,3 +148,28 @@ function sum2Arrays(arr1, arr2) {
 	}
 	return sum;
 }
+
+fillSelect();
+// Категории продуктов. Заполнение select
+function fillSelect() {
+	let trs = document.querySelectorAll('tbody tr');
+	var objSel = document.querySelector(".sel-prod-type");
+	for (let tr of trs) {
+		if (tr.children.length != 1) continue;
+		let listItem = tr.children[0].textContent;
+		//console.log(item);
+		objSel.options[objSel.options.length] = new Option(listItem, listItem);
+	}
+}
+
+document.querySelector(".sel-prod-type").addEventListener('change', (event) => {
+	let selProdType = document.querySelector(".sel-prod-type").value;
+	console.log(selProdType);
+	let trs = document.querySelectorAll('tbody tr');
+	// line is zero-based
+	// line is the row number that you want to see into view after scroll    
+	rows[line].scrollIntoView({
+		behavior: 'smooth',
+		block: 'center'
+	});
+});
