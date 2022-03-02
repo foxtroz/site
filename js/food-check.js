@@ -22,7 +22,7 @@ document.querySelector('#search-product').addEventListener('keyup', () => {
 	let tr = table.querySelectorAll("#table-product tr");
 	let subs = document.querySelectorAll('th[colspan]');
 	for (let sub of subs) { sub.hidden = true };
-	document.querySelector('#select').checked = false;
+	//document.querySelector('#select').checked = false;
 	// Loop through all table rows, and hide those who don't match the search query
 	for (let row of tr) {
 		td = row.querySelectorAll("td")[0];
@@ -165,14 +165,17 @@ function fillSelect() {
 document.querySelector(".sel-prod-type").addEventListener('change', (event) => {
 	let selProdType = document.querySelector(".sel-prod-type").value;
 	//console.log(selProdType);
-	let trs = document.querySelectorAll('tbody tr');
-	for (let tr of trs) {
-		if (tr.children.length != 1) continue;
-		/*if (tr.children[0].textContent = selProdType) {
-			//console.log(tr.children[0].textContent);
-			//tr.closest('.big_table').scrollIntoView();
-			break;
-		};*/
+	var rows = document.querySelectorAll('#table-product tr');
+	let line = 0;
+	for (let i=0; i<rows.length; i++) {
+if (rows[i].children[0].innerHTML == selProdType) { line = i; break; }
 	}
+	// line is zero-based
+	// line is the row number that you want to see into view after scroll    
+	//let line = 100;
+	rows[line].scrollIntoView({
+		behavior: 'smooth',
+		block: 'center'
+	});
 });
 
