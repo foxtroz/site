@@ -161,15 +161,18 @@ function fillSelect() {
 		objSel.options[objSel.options.length] = new Option(listItem, listItem);
 	}
 }
-
+// Событие смены пункта выпадающего списка
 document.querySelector(".sel-prod-type").addEventListener('change', (event) => {
 	let selProdType = document.querySelector(".sel-prod-type").value;
-	console.log(selProdType);
+	//console.log(selProdType);
 	let trs = document.querySelectorAll('tbody tr');
-	// line is zero-based
-	// line is the row number that you want to see into view after scroll    
-	rows[line].scrollIntoView({
-		behavior: 'smooth',
-		block: 'center'
-	});
+	for (let tr of trs) {
+		if (tr.children.length != 1) continue;
+		if (tr.children[0].textContent = selProdType) {
+			//console.log(tr.children[0].textContent);
+			tr.closest('.big_table').scrollIntoView();
+			break;
+		};
+	}
 });
+
