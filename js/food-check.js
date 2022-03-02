@@ -153,27 +153,23 @@ fillSelect();
 // Категории продуктов. Заполнение select
 function fillSelect() {
 	let trs = document.querySelectorAll('tbody tr');
-	var objSel = document.querySelector(".sel-prod-type");
-	for (let tr of trs) {
-		if (tr.children.length != 1) continue;
-		let listItem = tr.children[0].textContent;
-		//console.log(item);
-		objSel.options[objSel.options.length] = new Option(listItem, listItem);
+	let objSel = document.querySelector(".sel-prod-type");
+	for (let i = 0; i < trs.length; i++) {
+		if (trs[i].children.length != 1) continue;
+		let listItem = trs[i].children[0].textContent;
+		//console.log(listItem, i);
+		objSel.options[objSel.options.length] = new Option(listItem, i);
 	}
 }
 // Событие смены пункта выпадающего списка
 document.querySelector(".sel-prod-type").addEventListener('change', (event) => {
 	let selProdType = document.querySelector(".sel-prod-type").value;
 	//console.log(selProdType);
-	var rows = document.querySelectorAll('#table-product tr');
-	let line = 0;
-	for (let i=0; i<rows.length; i++) {
-if (rows[i].children[0].innerHTML == selProdType) { line = i; break; }
-	}
+	let rows = document.querySelectorAll('#table-product tr');
 	// line is zero-based
 	// line is the row number that you want to see into view after scroll    
 	//let line = 100;
-	rows[line].scrollIntoView({
+	rows[selProdType].scrollIntoView({
 		behavior: 'smooth',
 		block: 'center'
 	});
