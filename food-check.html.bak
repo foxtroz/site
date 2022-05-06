@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="" ru>
 
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -12,31 +12,25 @@
 	<link rel="stylesheet" href="css/menu-hor.css" type="text/css">
 	<link href="css/food-check.css" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<link rel="import" href="./menu.html">
 </head>
 
 <body>
 	<noscript>Включите поддержку JavaScript!</noscript>
-	<!--<h3>Содержание питательных веществ в 100 г. продукта</h3>-->
-
-	<!--div.side>ul.menu>li*5>a[#]{Пункт $}  Tab-->
-	<div class="outline"></div>
-	<nav>
+	<!--	<nav>
 		<ul class="menu">
 			<li><a href="#">Меню</a>
 				<ul class="submenu">
 					<li> <a href="food-check.html">Продукты</a> </li>
 					<li> <a href="amino-mikoyan.html">Аминок.</a></li>
-					<!--<ul>
-                        <li><a href="#">level 3</a></li>
-                        <li><a href="#">level 3</a></li>
-                        <li><a href="#">level 3</a></li>
-                    </ul>-->
 				</ul>
 			</li>
 			<li> <a href="food-check.html">Продукты</a> </li>
 			<li> <a href="amino-mikoyan.html">Аминок.</a></li>
 		</ul>
-	</nav>
+	</nav>-->
+	<script src="js/menu.js"></script>
+
 	<div class="big_table">
 		<table id="tableProduct">
 			<caption>Содержание питательных веществ в 100 г. продукта</caption>
@@ -52,7 +46,8 @@
 			<col style="width:8">
 			<thead>
 				<tr>
-					<th>Продукты<input id="search-product" placeholder="Поиск" type="search" /></th>
+					<th>Категории:<select class="sel-prod-type"></select><br>
+						Названия продуктов:<input id="search-product" placeholder="Поиск" type="search" /></th>
 					<th>Белки,г</th>
 					<th>Жиры,г</th>
 					<th>Углеводы,г</th>
@@ -60,11 +55,10 @@
 					<th>Калий,мг</th>
 					<th>Фосфор,мг</th>
 					<th>Ккал</th>
-					<th>
-						<input id="select" type="checkbox" /><label for="select">Все продукты</label>
+					<th>Продукты:
 						<select class="select">
 							<option value="all">Все</option>
-							<option value="select">Выбранные</option>
+							<option value="sel">Выбранные</option>
 						</select>
 					</th>
 					<th>Количество грамм</th>
@@ -5719,8 +5713,8 @@
 					<td>0</td>
 					<td>0</td>
 					<td>0</td>
-					<td></td>
-					<td></td>
+					<td colspan="2"></td>
+
 				</tr>
 				<tr class="bgu">
 					<td>Ваш % от Ккал (БЖУ):</td>
@@ -5731,14 +5725,13 @@
 					<td></td>
 					<td></td>
 					<td>100%</td>
-					<td></td>
-					<td></td>
+					<td colspan="2"></td>
 				</tr>
 				<tr>
-					<td>Нормы % от Ккал:</td>
-					<td>3,4%</td>
-					<td>3,0%</td>
-					<td>12,5%</td>
+					<td>Нормы % от Ккал,&#8804;:</td>
+					<td>30%</td>
+					<td>30%</td>
+					<td>40%</td>
 					<td>
 						< 2г/д(1/5 ч.ложки)</td>
 					<td>
@@ -5746,11 +5739,10 @@
 					<td>
 						< 1г/д</td>
 					<td>100%</td>
-					<td></td>
-					<td></td>
+					<td colspan="2"></td>
 				</tr>
 				<tr>
-					<td><input type="button" value="Введите Ваш сухой вес" class="weight" /></td>
+					<td>Ваши суточные нормы:<input type="button" value="Введите Ваш сухой вес" class="weight" /></td>
 					<td>Белок</td>
 					<td></td>
 					<td></td>
@@ -5758,10 +5750,19 @@
 					<td></td>
 					<td></td>
 					<td>кКал</td>
-					<td></td>
-					<td></td>
+					<td colspan="2"></td>
 				</tr>
-
+				<tr>
+					<td>Суточные нормы:</td>
+					<td>>70г, сразу 30-40г</td>
+					<td>>40-50г (60-70)</td>
+					<td>>60г и "<"120-200г</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>кКал</td>
+					<td colspan="2"></td>
+				</tr>
 
 			</tfoot>
 		</table>

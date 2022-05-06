@@ -166,7 +166,7 @@ function fillSelect() {
 	let trs = document.querySelectorAll('tbody tr');
 	let objSel = document.querySelector(".sel-prod-type");
 	for (let i = 0; i < trs.length; i++) {
-		if (trs[i].children.length != 1) continue;
+		if (trs[i].children.length > 1) continue;
 		let listItem = trs[i].children[0].textContent;
 		//console.log(listItem, i);
 		objSel.options[objSel.options.length] = new Option(listItem, i);
@@ -185,4 +185,6 @@ document.querySelector(".sel-prod-type").addEventListener('change', (event) => {
 		block: 'center'
 	});
 });
+
+
 
