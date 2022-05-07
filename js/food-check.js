@@ -89,8 +89,8 @@ function outText(text) {
 document.querySelector('.weight').onclick = function (event) {
 	let weight = prompt("Введите Ваш сухой вес", 0);
 	weight = parseFloat(weight);
-	this.closest('tr').children[1].textContent = (1.2 * weight).toFixed(2);
-	this.closest('tr').children[7].textContent = (35 * weight).toFixed(2);
+	this.closest('tr').children[1].textContent = (1.2 * weight).toFixed(1);
+	this.closest('tr').children[7].textContent = (35 * weight).toFixed(1);
 	this.closest('tr').children[8].textContent = "<-Нормы для Вашего веса " + weight + 'кг';
 }
 
@@ -106,7 +106,7 @@ document.querySelector('.calc').onclick = function (event) {
 		let tr = trs[i];
 		let tds = tr.children;
 		//console.log('tds array?:' + Array.isArray(tds));
-		if (tds.length !== 10) continue;
+		if (tds.length !== 11) continue;
 		if (tds[8].querySelector('input').checked == false) continue;
 		//console.log(tds[9].textContent);
 		let data = Array.from(tr.children); // Не все children!!!
@@ -143,7 +143,7 @@ document.querySelector('.calc').onclick = function (event) {
 		let a2 = text[6];
 		let b1 = (a1 == null || a1 == "" || a1 == "undefined" || a1 == "-") ? 0 : a1;
 		let b2 = (a2 == null || a2 == "" || a2 == "undefined" || a2 == "-") ? 0 : a2;
-		bgu[i + 1].textContent = (parseFloat(b1) * 100 / parseFloat(b2)).toFixed(2);
+		bgu[i + 1].textContent = (parseFloat(b1) * 100 / parseFloat(b2)).toFixed(1);
 	}
 
 }
@@ -187,7 +187,26 @@ document.querySelector(".sel-prod-type").addEventListener('change', (event) => {
 });
 
 // ФБК
-//let trs = document.querySelectorAll('tbody > tr');
+let trs = document.querySelectorAll('tbody > tr');
+//console.log(trs);
+for (let i = 0; i < trs.length; i++) {
+	if (trs[i].children.length === 11) {
+		//console.log(trs[i], i);
+		let tr = trs[i];
+		let tds = tr.children;
+
+		let belo = tds[1].textContent;
+		let phos = tds[6].textContent;
+		belo = belo.replace(',', '.');
+		phos = phos.replace(',', '.');
+		console.log(phos, belo);
+		//tds[10].textContent = "0";
+		if (belo == null || belo == "" || belo == "undefined" || belo == "-" || belo == 0) continue;
+		if (phos == null || phos == "" || phos == "undefined" || phos == "-") continue;
+		if (parseFloat(belo) == 0) continue;
+		tds[10].textContent = (parseFloat(phos) / parseFloat( belo)).toFixed(1);
+	}
+}
 //let text = ["" , 0, 0, 0, 0, 0, 0, 0, "", 0];
 //let text = [7]; // Только числа
 
