@@ -186,5 +186,8 @@ document.querySelector(".sel-prod-type").addEventListener('change', (event) => {
 	});
 });
 
-
+// ФБК
+//let trs = document.querySelectorAll('tbody > tr');
+//let text = ["" , 0, 0, 0, 0, 0, 0, 0, "", 0];
+//let text = [7]; // Только числа
 
