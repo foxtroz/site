@@ -92,15 +92,15 @@ document.querySelector('.weight').onclick = function (event) {
 	weight = parseFloat(weight);
 	this.closest('tr').children[1].textContent = (1.2 * weight).toFixed(1);
 	this.closest('tr').children[7].textContent = (35 * weight).toFixed(1);
-	this.closest('tr').children[8].textContent = "<-Нормы для Вашего веса " + weight + 'кг';
+	//this.closest('tr').children[8].textContent = "<-Нормы для Вашего веса " + weight + 'кг';
 }
 
 document.querySelector('.calc').onclick = function (event) {
 	//console.log(event.target);
 	let trs = document.querySelectorAll('tbody > tr');
 	//let text = ["" , 0, 0, 0, 0, 0, 0, 0, "", 0];
-	let text = [7]; // Только числа
-	for (let i = 0; i < 7; i++) text[i] = 0.0;
+	let text = [9]; // Только числа
+	for (let i = 0; i < 9; i++) text[i] = 0.0;
 	//По строкам
 	//for (let tr of trs) {
 	for (let i = 0; i < trs.length; i++) {
@@ -113,23 +113,25 @@ document.querySelector('.calc').onclick = function (event) {
 		let data = Array.from(tr.children); // Не все children!!!
 		let crow = data.map(item => item.textContent);
 		let cnt = parseFloat(tds[9].textContent);
-		let fbk = parseFloat(tds[10].textContent);
-		//console.log(cnt);
+		text[7]++;
+		//text[8] = cnt;
+		//console.log(text);
 		coeff = (cnt == null || cnt == "" || cnt == "undefined") ? 0 : cnt;
 		//console.log(cnt); console.log(coeff);
 		//let curr = crow.map(item => parseFloat(item) * parseFloat(coeff) / 100.00);
 		//По ячейкам
-		let curr = [7];
+		let curr = [9];
 		for (let j = 0; j < 7; j++) {
 			let cell = crow[j + 1].replace(',', '.');
 			//console.log(cell);
 			curr[j] = parseFloat(cell) * coeff / 100;
 		}
-		//curr[7] = parseFloat(fbk) * coeff / 100;
+		//curr[7] = 0;
+		curr[8] = parseFloat(crow[9]);
 		//console.log(curr);
 		//console.log(text);
 		text = sum2Arrays(text, curr);
-		//console.log(text);  Где то ошибка в расчете массива надо i с 1 по 7
+		console.log(text);  //Где то ошибка в расчете массива надо i с 1 по 7
 	}
 
 
@@ -139,9 +141,11 @@ document.querySelector('.calc').onclick = function (event) {
 	for (let i = 0; i < 7; i++) {
 		td2[i + 1].textContent = text[i].toFixed(1);
 	}
+	td2[8].textContent = text[7].toFixed(0);
+	td2[9].textContent = text[8].toFixed(0);
 	//console.log(calctr);
 	const fbk = document.querySelector('#fbk');
-	console.log(fbk);
+	//console.log(fbk);
 	let a1 = text[5]; // белок
 	let a2 = text[0]; // фосфор
 	let b1 = (a1 == null || a1 == "" || a1 == "undefined" || a1 == "-") ? 0 : a1;
@@ -151,8 +155,8 @@ document.querySelector('.calc').onclick = function (event) {
 }
 
 function sum2Arrays(arr1, arr2) {
-	let sum = [7];
-	for (let i = 0; i < 7; i++) {
+	let sum = [9];
+	for (let i = 0; i < 9; i++) {
 		let a1 = arr1[i];
 		let a2 = arr2[i];
 		let b1 = (a1 == null || a1 == "" || a1 == "undefined" || a1 == "-") ? 0 : a1;
