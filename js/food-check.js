@@ -112,6 +112,7 @@ document.querySelector('.calc').onclick = function (event) {
 		let data = Array.from(tr.children); // Не все children!!!
 		let crow = data.map(item => item.textContent);
 		let cnt = parseFloat(tds[9].textContent);
+		let fbk = parseFloat(tds[10].textContent);
 		//console.log(cnt);
 		coeff = (cnt == null || cnt == "" || cnt == "undefined") ? 0 : cnt;
 		//console.log(cnt); console.log(coeff);
@@ -123,6 +124,7 @@ document.querySelector('.calc').onclick = function (event) {
 			//console.log(cell);
 			curr[j] = parseFloat(cell) * coeff / 100;
 		}
+		//curr[7] = parseFloat(fbk) * coeff / 100;
 		console.log(curr);
 		console.log(text);
 		text = sum2Arrays(text, curr);
@@ -134,7 +136,7 @@ document.querySelector('.calc').onclick = function (event) {
 	//console.log(text);
 	//text.forEach((item, index) => td2[index].textContent = item);
 	for (let i = 0; i < 7; i++) {
-		td2[i + 1].textContent = text[i].toFixed(2);
+		td2[i + 1].textContent = text[i].toFixed(1);
 	}
 	//console.log(calctr);
 	const bgu = document.querySelectorAll('.bgu>td');
