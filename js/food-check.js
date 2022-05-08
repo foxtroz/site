@@ -43,6 +43,7 @@ document.querySelector('#search-product').addEventListener('keyup', () => {
 			if (flag) {
 				row.hidden = false;
 				//tr[tr.indexOf(row)].hidden = false;
+				//row.closest
 			} else {
 				row.hidden = true;
 				//tr[tr.indexOf(row)].hidden = false;
@@ -80,7 +81,7 @@ function getDataFromTd(tdArr) {
 const UL = document.querySelectorAll('ul>li>span');
 //const TD = document.querySelectorAll('tfoot>tr>td');
 function outText(text) {
-	text.forEach((item, index) => UL[index].textContent = item);
+	//text.forEach((item, index) => UL[index].textContent = item);
 	//text.forEach((item, index) => TD[index].textContent = item);
 	//console.log(text);
 	//TD[9].textContent = prompt('How old are you?', 40);
@@ -125,8 +126,8 @@ document.querySelector('.calc').onclick = function (event) {
 			curr[j] = parseFloat(cell) * coeff / 100;
 		}
 		//curr[7] = parseFloat(fbk) * coeff / 100;
-		console.log(curr);
-		console.log(text);
+		//console.log(curr);
+		//console.log(text);
 		text = sum2Arrays(text, curr);
 		//console.log(text);  Где то ошибка в расчете массива надо i с 1 по 7
 	}
@@ -139,15 +140,14 @@ document.querySelector('.calc').onclick = function (event) {
 		td2[i + 1].textContent = text[i].toFixed(1);
 	}
 	//console.log(calctr);
-	const bgu = document.querySelectorAll('.bgu>td');
-	for (let i = 0; i < 3; i++) {
-		let a1 = text[i];
-		let a2 = text[6];
-		let b1 = (a1 == null || a1 == "" || a1 == "undefined" || a1 == "-") ? 0 : a1;
-		let b2 = (a2 == null || a2 == "" || a2 == "undefined" || a2 == "-") ? 0 : a2;
-		bgu[i + 1].textContent = (parseFloat(b1) * 100 / parseFloat(b2)).toFixed(1);
-	}
-
+	const fbk = document.querySelector('#fbk');
+	console.log(fbk);
+	let a1 = text[5]; // белок
+	let a2 = text[0]; // фосфор
+	let b1 = (a1 == null || a1 == "" || a1 == "undefined" || a1 == "-") ? 0 : a1;
+	let b2 = (a2 == null || a2 == "" || a2 == "undefined" || a2 == "-") ? 0 : a2;
+	//fbk.textContent = "TTT";
+	fbk.textContent = (parseFloat(b1) / parseFloat(b2)).toFixed(1);
 }
 
 function sum2Arrays(arr1, arr2) {
@@ -160,6 +160,8 @@ function sum2Arrays(arr1, arr2) {
 		sum[i] = parseFloat(b1) + parseFloat(b2);
 	}
 	return sum;
+
+
 }
 
 fillSelect();
@@ -186,6 +188,7 @@ document.querySelector(".sel-prod-type").addEventListener('change', (event) => {
 		behavior: 'smooth',
 		block: 'center'
 	});
+	//for (let sub of rows) { sub.hidden = false };
 });
 
 // ФБК
@@ -201,12 +204,12 @@ for (let i = 0; i < trs.length; i++) {
 		let phos = tds[6].textContent;
 		belo = belo.replace(',', '.');
 		phos = phos.replace(',', '.');
-		console.log(phos, belo);
+		//console.log(phos, belo);
 		//tds[10].textContent = "0";
 		if (belo == null || belo == "" || belo == "undefined" || belo == "-" || belo == 0) continue;
 		if (phos == null || phos == "" || phos == "undefined" || phos == "-") continue;
 		if (parseFloat(belo) == 0) continue;
-		tds[10].textContent = (parseFloat(phos) / parseFloat( belo)).toFixed(1);
+		tds[10].textContent = (parseFloat(phos) / parseFloat(belo)).toFixed(1);
 	}
 }
 //let text = ["" , 0, 0, 0, 0, 0, 0, 0, "", 0];
