@@ -90,8 +90,9 @@ function outText(text) {
 document.querySelector('.weight').onclick = function (event) {
 	let weight = prompt("Введите Ваш сухой вес", 0);
 	weight = parseFloat(weight);
-	this.closest('tr').children[1].textContent = (1.2 * weight).toFixed(1);
+	this.closest('tr').children[1].textContent = (1.0 * weight).toFixed(1);
 	this.closest('tr').children[7].textContent = (35 * weight).toFixed(1);
+	this.closest('tr').children[8].textContent = weight.toFixed(0) + "кГ";
 	//this.closest('tr').children[8].textContent = "<-Нормы для Вашего веса " + weight + 'кг';
 }
 
