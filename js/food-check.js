@@ -30,23 +30,31 @@ document.querySelector('#search-product').addEventListener('keyup', () => {
 	let input = document.querySelector("#search-product");
 	let filter = input.value;//.toLowerrCase();
 	let table = document.querySelector("#table-product");
-	let tr = table.querySelectorAll("#table-product tr");
+	let trs = table.querySelectorAll("#table-product tr");
 	let subs = document.querySelectorAll('th[colspan]');
 	for (let sub of subs) { sub.hidden = true };
 	//document.querySelector('#select').checked = false;
 	// Loop through all table rows, and hide those who don't match the search query
-	for (let row of tr) {
+	for (let row of trs) {
 		td = row.querySelectorAll("td")[0];
 		if (td) {
 			txtValue = td.textContent || td.innerText;
 			let flag = txtValue.toLowerCase().indexOf(filter.toLowerCase()) > -1;
 			if (flag) {
 				row.hidden = false;
-				//tr[tr.indexOf(row)].hidden = false;
-				//row.closest
+				//console.log(row.previousElementSibling.textContent);
+				let el = row;
+				for (el of trs) {
+					el = el.previousElementSibling;
+					//el.hidden = false;
+					if (el) {
+						if (el.firstChild.hasAttribute('colspan')) {
+							console.log(el.firstChild.textContent);
+						}
+					}
+				}
 			} else {
 				row.hidden = true;
-				//tr[tr.indexOf(row)].hidden = false;
 			}
 		}
 	}
@@ -132,7 +140,7 @@ document.querySelector('.calc').onclick = function (event) {
 		//console.log(curr);
 		//console.log(text);
 		text = sum2Arrays(text, curr);
-		console.log(text);  //Где то ошибка в расчете массива надо i с 1 по 7
+		//console.log(text);  //Где то ошибка в расчете массива надо i с 1 по 7
 	}
 
 
